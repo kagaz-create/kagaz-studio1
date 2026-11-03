@@ -854,7 +854,7 @@ function showHome(){
 }
 function showTool(t){
   resetTool();state.tool=t;
-  state.opts={};t.options.forEach(o=>{state.opts[o.key]=o.def;});
+  state.opts={};(t.options||[]).forEach(o=>{state.opts[o.key]=o.def;});
   if(state.preset&&state.preset.tool===t.id){Object.assign(state.opts,state.preset.opts||{});}
   state.preset=null;
   app.innerHTML=toolHTML(t);
